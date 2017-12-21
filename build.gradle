@@ -1,9 +1,39 @@
-apply plugin: 'java'
-
-repositories {
-    jcenter()
-}
+apply plugin: 'groovy'
 
 dependencies {
-    testCompile 'junit:junit:4.12'
+    compile gradleApi()
+    compile localGroovy()
+}
+
+subprojects {
+    apply plugin: 'java'
+    sourceCompatibility = 1.8
+
+    dependencies {
+        compile 'org.springframework:spring-context:5.0.2.RELEASE'
+        testCompile 'junit:junit:4.12'
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    sourceSets {
+        main {
+            java {
+                srcDir 'src/java'
+            }
+            resources {
+                srcDir 'src/resources'
+            }
+        }
+        test {
+            java {
+                srcDir 'src/java'
+            }
+            resources {
+                srcDir 'src/resources'
+            }
+        }
+    }
 }
