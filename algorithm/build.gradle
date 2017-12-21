@@ -1,4 +1,17 @@
+apply plugin: 'war'
+apply plugin: 'jetty'
 apply plugin: 'application'
 version = '1.0'
 mainClassName = "algorithm.Algorithm"
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
+jettyRun {
+    contextPath = "spring4"
+    httpPort = 8080
+}
+
+jettyRunWar{
+    contextPath = "spring4"
+    httpPort = 8080
+}
