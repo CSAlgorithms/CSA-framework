@@ -30,7 +30,6 @@ repositories {
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.session:spring-session-core')
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-web')
@@ -41,5 +40,4 @@ dependencies {
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('org.springframework.restdocs:spring-restdocs-mockmvc')
-	testCompile('org.springframework.security:spring-security-test')
 }
