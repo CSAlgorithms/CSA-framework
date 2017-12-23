@@ -1,39 +1,45 @@
-apply plugin: 'groovy'
-
-dependencies {
-    compile gradleApi()
-    compile localGroovy()
+buildscript {
+	ext {
+		springBootVersion = '2.0.0.BUILD-SNAPSHOT'
+	}
+	repositories {
+		mavenCentral()
+		maven { url "https://repo.spring.io/snapshot" }
+		maven { url "https://repo.spring.io/milestone" }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
 }
 
-subprojects {
-    apply plugin: 'java'
-    sourceCompatibility = 1.8
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
 
-    repositories {
-        mavenCentral()
-    }
+group = 'com.csalgorithms'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
 
-    dependencies {
-        compile 'org.apache.logging.log4j:log4j-core:2.9.0'
-        compile 'org.springframework:spring-context:5.0.2.RELEASE'
-    }
+repositories {
+	mavenCentral()
+	maven { url "https://repo.spring.io/snapshot" }
+	maven { url "https://repo.spring.io/milestone" }
+}
 
-    sourceSets {
-        main {
-            java {
-                srcDir 'src/java'
-            }
-            resources {
-                srcDir 'src/resources'
-            }
-        }
-        test {
-            java {
-                srcDir 'src/java'
-            }
-            resources {
-                srcDir 'src/resources'
-            }
-        }
-    }
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('org.springframework.boot:spring-boot-starter-security')
+	compile('org.springframework.session:spring-session-core')
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-websocket')
+	runtime('org.springframework.boot:spring-boot-devtools')
+	runtime('com.h2database:h2')
+	runtime('mysql:mysql-connector-java')
+	compileOnly('org.projectlombok:lombok')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile('org.springframework.restdocs:spring-restdocs-mockmvc')
+	testCompile('org.springframework.security:spring-security-test')
 }
