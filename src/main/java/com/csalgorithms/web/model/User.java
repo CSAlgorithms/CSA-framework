@@ -1,9 +1,6 @@
 package com.csalgorithms.web.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class User {
@@ -13,8 +10,12 @@ public class User {
     private Long id;
     private String firstName;
     private String lastName;
+    private String email;
     private String username;
     private String password;
+
+    @ManyToOne
+    private School school;
 
     public User(String firstName, String lastName) {
         this.firstName = firstName;
@@ -59,5 +60,21 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
     }
 }
