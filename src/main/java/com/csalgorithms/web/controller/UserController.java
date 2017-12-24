@@ -1,5 +1,6 @@
 package com.csalgorithms.web.controller;
 
+import com.csalgorithms.web.helper.TemplateHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class UserController {
 
-    @RequestMapping("/user/new")
+    @RequestMapping("/user/add")
     public String add(Model model) {
-        return "user/add";
+        return TemplateHelper.view(model, "user", "add");
     }
 }

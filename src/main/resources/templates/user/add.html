@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <title>New user</title>
-</head>
+<head></head>
 <body>
-    <h2>New user</h2>
-    <div>
-        <form action="/user/new" method="post">
+    <div th:fragment="add">
+        <form action="/user/add" method="post">
             <table>
                 <tr>
                     <th>First name:</th>

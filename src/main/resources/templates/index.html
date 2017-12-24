@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="include/header :: header"></head>
+<body>
+    <div class="container">
+        <div th:replace="@{${main_page_dir} + ${main_page_file}} :: ${main_page_file}"></div>
+    </div>
+    <div th:replace="include/footer :: footer"> </div>
+</body>
+</html>
